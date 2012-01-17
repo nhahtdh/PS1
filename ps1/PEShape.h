@@ -25,7 +25,7 @@
 - (void)translateX:(CGFloat)dx Y:(CGFloat)dy;
   // MODIFIES: self
   // EFFECTS: translates this shape by the specified dx (along the
-  //            X-axis) and dy coordinates (along the Y-axis)
+  //          X-axis) and dy coordinates (along the Y-axis)
 
 - (BOOL)overlapsWithShape:(id<PEShape>)shape;
   // EFFECTS: returns YES if this shape overlaps with specified shape.

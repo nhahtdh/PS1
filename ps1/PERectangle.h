@@ -16,8 +16,10 @@ typedef enum {
 
 @interface PERectangle : NSObject <PEShape> {
     // OVERVIEW: This class implements a rectangle and the associated
-    //           operations. 
-    
+    //           operations.
+    CGPoint origin;
+    CGFloat width;
+    CGFloat height;
 }
 
 // rectangle width

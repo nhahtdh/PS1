@@ -67,20 +67,23 @@ int main (int argc, const char * argv[]) {
     }
     
 	/* Problem 2 code (Objective-C) */
-	// declare rectangle 1 and rectangle 2 objects
-    
-	// input rotation for rectangle 1
-    
-	// input rotation for rectangle 2
-    
-	// rotate rectangle objects
-	
-	// check if rectangle objects overlap and write message
-    
-	// clean up
-    
-	// exit program
-	return 0;
+	@autoreleasepool {
+        
+        // declare rectangle 1 and rectangle 2 objects
+        
+        // input rotation for rectangle 1
+        
+        // input rotation for rectangle 2
+        
+        // rotate rectangle objects
+        
+        // check if rectangle objects overlap and write message
+        
+        // clean up
+        
+        // exit program
+	}
+    return 0;
 }
 
 // This is where you should put your test cases to test that your implementation is correct. 
@@ -125,7 +128,7 @@ int test() {
     rect2.width = 28; rect2.y = 38;
     if (!overlaps(rect1, rect2))
         return 0;
-
+    
     // Test 7 (reuse rect1)
     rect2.x = -20; rect2.y = 70;
     rect2.width = 10; rect2.height = 10;

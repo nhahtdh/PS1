@@ -2,7 +2,7 @@
 //  PERectangle.m
 //  
 //  CS3217 || Assignment 1
-//  Name: <Your name here>
+//  Name: Hong Dai Thanh
 //
 
 #import "PERectangle.h"
@@ -11,16 +11,21 @@
 // OVERVIEW: This class implements a rectangle and the associated
 //             operations.
 
+@synthesize origin;
+@synthesize width;
+@synthesize height;
+
 - (CGPoint)center {
     // EFFECTS: returns the coordinates of the centre of mass for this
     // rectangle.
-    return [self center];
+    CGPoint center = CGPointMake(origin.x + width / 2.0, origin.y + height / 2.0);
+    return center;
 }
 
 - (CGPoint)cornerFrom:(CornerType)corner {
     // REQUIRES: corner is a enum constant defined in PEShape.h as follows:
     //           kTopLeftCorner, kTopRightCorner, kBottomLeftCorner,
-    //		   kBottomRightCorner 
+    //           kBottomRightCorner 
     // EFFECTS: returns the coordinates of the specified rotated rectangle corner after rotating
     
 }
@@ -46,7 +51,9 @@
 - (id)initWithRect:(CGRect)rect {
     // MODIFIES: self
     // EFFECTS: initializes the state of this rectangle using a CGRect
-    
+    self.origin = rect.origin;
+    width = rect.size.width;
+    height = rect.size.height;
 }
 
 - (void)rotate:(CGFloat)angle {
@@ -60,7 +67,7 @@
     // MODIFIES: self
     // EFFECTS: translates this shape by the specified dx (along the
     //            X-axis) and dy coordinates (along the Y-axis)
-    
+    self.origin = CGPointMake(self.origin.x + dx, self.origin.y + dy);
 }
 
 - (BOOL)overlapsWithShape:(id<PEShape>)shape {
