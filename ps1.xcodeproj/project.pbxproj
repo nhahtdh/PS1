@@ -10,6 +10,7 @@
 		89BDF68F14C51BB3005C0E50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89BDF68E14C51BB3005C0E50 /* Foundation.framework */; };
 		89BDF69214C51BB3005C0E50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BDF69114C51BB3005C0E50 /* main.m */; };
 		89BDF69614C51BB3005C0E50 /* ps1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 89BDF69514C51BB3005C0E50 /* ps1.1 */; };
+		89BDF6A214C51BF0005C0E50 /* PERectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 89BDF69F14C51BF0005C0E50 /* PERectangle.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +30,13 @@
 		89BDF68A14C51BB3005C0E50 /* ps1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ps1; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BDF68E14C51BB3005C0E50 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		89BDF69114C51BB3005C0E50 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		89BDF69414C51BB3005C0E50 /* ps1-Prefix.pch */ = {isa = PBXFileReference; path = "ps1-Prefix.pch"; sourceTree = "<group>"; };
+		89BDF69414C51BB3005C0E50 /* ps1-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ps1-Prefix.pch"; sourceTree = "<group>"; };
 		89BDF69514C51BB3005C0E50 /* ps1.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = ps1.1; sourceTree = "<group>"; };
+		89BDF69C14C51BF0005C0E50 /* cs3217_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cs3217_logo.png; sourceTree = "<group>"; };
+		89BDF69D14C51BF0005C0E50 /* Overlaps.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Overlaps.m; sourceTree = "<group>"; };
+		89BDF69E14C51BF0005C0E50 /* PERectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PERectangle.h; sourceTree = "<group>"; };
+		89BDF69F14C51BF0005C0E50 /* PERectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PERectangle.m; sourceTree = "<group>"; };
+		89BDF6A014C51BF0005C0E50 /* PEShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PEShape.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,11 @@
 		89BDF69014C51BB3005C0E50 /* ps1 */ = {
 			isa = PBXGroup;
 			children = (
+				89BDF69C14C51BF0005C0E50 /* cs3217_logo.png */,
+				89BDF69D14C51BF0005C0E50 /* Overlaps.m */,
+				89BDF69E14C51BF0005C0E50 /* PERectangle.h */,
+				89BDF69F14C51BF0005C0E50 /* PERectangle.m */,
+				89BDF6A014C51BF0005C0E50 /* PEShape.h */,
 				89BDF69114C51BB3005C0E50 /* main.m */,
 				89BDF69514C51BB3005C0E50 /* ps1.1 */,
 				89BDF69314C51BB3005C0E50 /* Supporting Files */,
@@ -139,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BDF69214C51BB3005C0E50 /* main.m in Sources */,
+				89BDF6A214C51BF0005C0E50 /* PERectangle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +241,7 @@
 				89BDF69B14C51BB3005C0E50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -8,17 +8,16 @@
 #import "PEShape.h"
 
 typedef enum {
-	 kTopLeftCorner = 1,
-	 kTopRightCorner = 2,
-	 kBottomLeftCorner = 3,
-	 kBottomRightCorner = 4
+    kTopLeftCorner = 1,
+    kTopRightCorner = 2,
+    kBottomLeftCorner = 3,
+    kBottomRightCorner = 4
 } CornerType;
- 
 
 @interface PERectangle : NSObject <PEShape> {
-// OVERVIEW: This class implements a rectangle and the associated
-//             operations. 
-
+    // OVERVIEW: This class implements a rectangle and the associated
+    //           operations. 
+    
 }
 
 // rectangle width
@@ -36,10 +35,10 @@ typedef enum {
 //          height, and rotation angle in degrees
 
 - (id)initWithRect:(CGRect)rect;
-  // MODIFIES: self
-  // EFFECTS: initializes the state of this rectangle using a CGRect
+// MODIFIES: self
+// EFFECTS: initializes the state of this rectangle using a CGRect
 
 - (BOOL)overlapsWithRect:(PERectangle*)rect;
-  // EFFECTS: returns YES if this shape overlaps with specified rectangle
+// EFFECTS: returns YES if this shape overlaps with specified rectangle
 
 @end
