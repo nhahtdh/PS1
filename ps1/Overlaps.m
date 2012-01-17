@@ -19,13 +19,12 @@ struct Rectangle {
 
 int overlaps(struct Rectangle rect1, struct Rectangle rect2) {
     // EFFECTS: returns 1 if rectangles overlap and 0 otherwise
-    // int rect1RightX, rect2RightX;
-    // int rect1BottomY, rect2BottomY;
     int rect1RightX = rect1.x + rect1.width;
     int rect2RightX = rect2.x + rect2.width;
     int rect1BottomY = rect1.y - rect1.height;
     int rect2BottomY = rect2.y - rect2.height;
-    printf("%d %d %d %d %d %d %d %d\n", rect1.x, rect1RightX, rect1.y, rect1BottomY, rect2.x, rect2RightX, rect2.y, rect2BottomY);
+    // TODO: Remove this!!!
+    // printf("%d %d %d %d %d %d %d %d\n", rect1.x, rect1RightX, rect1.y, rect1BottomY, rect2.x, rect2RightX, rect2.y, rect2BottomY);
     if (rect1RightX < rect2.x || rect2RightX < rect1.x || rect2.y < rect1BottomY || rect1.y < rect2BottomY)
         return 0;
     else
@@ -109,18 +108,42 @@ int test() {
     if (overlaps(rect1, rect2))
         return 0;
     
-    // Test 3 (reuse rect1)
+    // Test 4 (reuse rect1)
     rect2.x = 10; rect2.y = 50;
     rect2.width = 20; rect2.height = 10;
     if (!overlaps(rect1, rect2))
         return 0;
     
-    // Test 4 (reuse rect1)
+    // Test 5 (reuse rect1)
     rect2.x = 10; rect2.y = 50;
     rect2.width = 20; rect2.height = 15;
     if (!overlaps(rect1, rect2))
         return 0;
+    
+    // Test 6 (reuse rect1)
+    rect2.x = 1; rect2.y = 39;
+    rect2.width = 28; rect2.y = 38;
+    if (!overlaps(rect1, rect2))
+        return 0;
 
+    // Test 7 (reuse rect1)
+    rect2.x = -20; rect2.y = 70;
+    rect2.width = 10; rect2.height = 10;
+    if (overlaps(rect1, rect2))
+        return 0;
+    
+    // Test 8 (reuse rect1)
+    rect2.x = -20; rect2.y = 70;
+    rect2.width = 100; rect2.height = 10;
+    if (overlaps(rect1, rect2))
+        return 0;
+    
+    // Test 9 (reuse rect1)
+    rect2.x = -20; rect2.y = 70;
+    rect2.width = 10; rect2.height = 100;
+    if (overlaps(rect1, rect2))
+        return 0;
+    
     return 1;
 }
 
