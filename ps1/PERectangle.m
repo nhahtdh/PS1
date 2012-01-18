@@ -59,12 +59,9 @@
     }
     x -= self.center.x;
     y -= self.center.y;
-    // printf("%d %lf %lf\n", corner, x, y);
     
     // Conversion to radian: deg / 180 * PI
     CGFloat rotationInRad = self.rotation / 180. * acos(-1.);
-    // printf("%lf deg --> %lf rad\n", self.rotation, rotationInRad);
-    // printf("New: %lf, %lf\n",  self.center.x + cos(rotationInRad) * x - sin(rotationInRad) * y, self.center.y + sin(rotationInRad) * x + cos(rotationInRad) * y);
     return CGPointMake(
                        self.center.x + cos(rotationInRad) * x - sin(rotationInRad) * y,
                        self.center.y + sin(rotationInRad) * x + cos(rotationInRad) * y);
@@ -119,7 +116,6 @@
 
 - (BOOL)overlapsWithShape:(id<PEShape>)shape {
     // EFFECTS: returns YES if this shape overlaps with specified shape.
-    
     if ([shape class] == [PERectangle class]) {
         return [self overlapsWithRect:(PERectangle *)shape];
     }
@@ -132,14 +128,10 @@
     // EFFECTS: return YES if the segments have at least 1 point in common; 
     // return NO otherwise.
     
-    // printf("%lf %lf %lf %lf %lf %lf %lf %lf\n", seg1pt1.x, seg1pt1.y, seg1pt2.x, seg1pt2.y, seg2pt1.x, seg2pt1.y, seg2pt2.x, seg2pt2.y);
-    
     // The vector corresponding to the segments
     CGPoint seg1vector = CGPointMake(seg1pt1.x - seg1pt2.x, seg1pt1.y - seg1pt2.y);
     CGPoint seg2vector = CGPointMake(seg2pt1.x - seg2pt2.x, seg2pt1.y - seg2pt2.y);
-    
-    // printf("Vect: %lf %lf %lf %lf\n", seg1vector.x, seg1vector.y, seg2vector.x, seg2vector.y);
-    
+
     // a, b, c are the coefficients in the representation 
     // of a general line: ax + by = c
     CGFloat a1, b1, c1;
@@ -150,25 +142,23 @@
     a2 = seg2vector.y;
     b2 = -seg2vector.x;
     c2 = seg2pt1.x * seg2vector.y - seg2vector.x * seg2pt1.y;
-    // printf("%lf %lf %lf %lf %lf %lf\n", a1, b1, c1, a2, b2, c2);
-    
+   
     CGFloat D, Dx, Dy;
     D = a2 * b1 - a1 * b2;
     Dx = c2 * b1 - c1 * b2;
     Dy = a2 * c1 - a1 * c2;
-    // printf("Det: %lf %lf %lf\n", D, Dx, Dy);
     if (float_equals(D, 0)) {
         if (float_equals(Dx, 0) && float_equals(Dy, 0)) { // 2 segments on the same line
-            if (seg1pt1.x == seg1pt2.x && seg1pt2.x == seg2pt1.x && seg2pt1.x == seg2pt2.x) { // On the same vertical line
+            if (seg1pt1.x == seg1pt2.x && seg1pt2.x == seg2pt1.x 
+                && seg2pt1.x == seg2pt2.x) { // On the same vertical line
                 CGFloat seg1MaxY, seg1MinY, seg2MaxY, seg2MinY;
                 seg1MaxY = MAX(seg1pt1.y, seg1pt2.y);
                 seg1MinY = MIN(seg1pt1.y, seg1pt2.y);
                 seg2MaxY = MAX(seg2pt1.y, seg2pt2.y);
                 seg2MinY = MIN(seg2pt1.y, seg2pt2.y);
-                if (seg1MaxY < seg2MinY || seg2MaxY < seg1MinY)
+                if (seg1MaxY < seg2MinY || seg2MaxY < seg1MinY) {
                     return NO;
-                else {
-                    // printf("Many intersection\n");
+                } else {
                     return YES;
                 }
                 
@@ -178,10 +168,9 @@
                 seg1MinX = MIN(seg1pt1.x, seg1pt2.x);
                 seg2MaxX = MAX(seg2pt1.x, seg2pt2.x);
                 seg2MinX = MIN(seg2pt1.x, seg2pt2.x);
-                if (seg1MaxX < seg2MinX || seg2MaxX < seg1MinX)
+                if (seg1MaxX < seg2MinX || seg2MaxX < seg1MinX) {
                     return NO;
-                else {
-                    // printf("Many intersection\n");
+                } else {
                     return YES;
                 }
             }
@@ -195,10 +184,9 @@
         seg2MaxX = MAX(seg2pt1.x, seg2pt2.x);
         seg2MinX = MIN(seg2pt1.x, seg2pt2.x);
         CGFloat intersectX = Dx / D;
-        // printf("Line intersect: %lf %lf\n", intersectX, Dy / D);
         // At this point, at most one of the segment will have inf. tangent.
-        if (seg1MinX <= intersectX && intersectX <= seg1MaxX && seg2MinX <= intersectX && intersectX <= seg2MaxX) {
-            // printf("Segment intersect: %lf %lf\n", intersectX, Dy / D);
+        if (seg1MinX <= intersectX && intersectX <= seg1MaxX && 
+            seg2MinX <= intersectX && intersectX <= seg2MaxX) {
             return YES;
         } else{
             return NO;
@@ -225,7 +213,6 @@
             if ([PERectangle ccwTest: corners1[i] :corners2[j]: corners2[j + 1]] != sign)
                 goto UNDECIDED_1;
         }
-        // printf("Point in figure\n");
         return YES;
         UNDECIDED_1:;
     }
@@ -236,7 +223,6 @@
             if ([PERectangle ccwTest: corners2[i] :corners1[j]: corners1[j + 1]] != sign)
                 goto UNDECIDED_2;
         }
-        // printf("Point in figure\n");
         return YES;
         UNDECIDED_2:;
     }

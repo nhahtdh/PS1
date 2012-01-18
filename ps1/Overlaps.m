@@ -24,8 +24,6 @@ int overlaps(struct Rectangle rect1, struct Rectangle rect2) {
     int rect2RightX = rect2.x + rect2.width;
     int rect1BottomY = rect1.y - rect1.height;
     int rect2BottomY = rect2.y - rect2.height;
-    // TODO: Remove this!!!
-    // printf("%d %d %d %d %d %d %d %d\n", rect1.x, rect1RightX, rect1.y, rect1BottomY, rect2.x, rect2RightX, rect2.y, rect2BottomY);
     if (rect1RightX < rect2.x || rect2RightX < rect1.x || rect2.y < rect1BottomY || rect1.y < rect2BottomY)
         return 0;
     else
@@ -45,11 +43,10 @@ int test();
 int main (int argc, const char * argv[]) {
     /*
     if (test()) {
-        printf("Testing completed succesfully\n");
+        printf("Testing successfully completed\n");
     } else {
-        printf("Failed\n");
-    }
-    */
+        printf("Testing failed\n");
+    }*/
     
 	/* Problem 1 code (C only!) */
 	// declare rectangle 1 and rectangle 2
@@ -173,9 +170,7 @@ int test() {
         // Problem 2
         PERectangle *rect1, *rect2, *rect3;
         CGPoint* corners;
-        int i;
         
-        // Test 1
         // Test initWithOrigin
         rect1 = [[PERectangle alloc] initWithOrigin: CGPointMake(-20, 10) width: 40 height: 20 rotation: 0];
         if (!float_equals(rect1.origin.x, -20) || !float_equals(rect1.origin.y, 10) ||
@@ -267,15 +262,6 @@ int test() {
         corners = [rect1 corners];
         if (!float_equals(corners[1].x, 30) && !float_equals(corners[1].y, 10)) 
             return 0;
-        
-        /*
-        printf("%lf %lf %lf %lf %lf %lf %lf\n", rect1.origin.x, rect1.origin.y, rect1.width, rect1.height, rect1.rotation, rect1.center.x, rect1.center.y);
-        
-        corners = [rect1 corners];
-        for (i = 0; i < 4; i++) {
-            printf("%lf %lf\n", corners[i].x, corners[i].y);
-        }
-        */
         
     }
     
