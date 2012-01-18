@@ -20,6 +20,7 @@ typedef enum {
     CGPoint origin;
     CGFloat width;
     CGFloat height;
+    CGFloat rotation;
 }
 
 // rectangle width
